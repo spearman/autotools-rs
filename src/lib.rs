@@ -186,6 +186,12 @@ impl Config {
         self
     }
 
+    /// Options for autoreconf
+    pub fn reconf<P: AsRef<OsStr>>(&mut self, opts: P) -> &mut Config {
+        self.reconfig = Some (opts.as_ref().to_owned());
+        self
+    }
+
     /// Run this configuration, compiling the library with all the configured
     /// options.
     ///
